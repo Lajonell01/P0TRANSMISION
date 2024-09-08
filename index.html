@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0 15px;
+            line-height: 1.6;
         }
         table {
             width: 100%;
@@ -19,6 +20,7 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
+            vertical-align: top;
         }
         th {
             background-color: #f2f2f2;
@@ -48,6 +50,37 @@
         }
         button:hover {
             background-color: #45a049;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media screen and (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                display: none;
+            }
+            tr {
+                margin-bottom: 15px;
+                border-bottom: 2px solid #ddd;
+            }
+            td {
+                border: none;
+                padding: 10px 10px;
+                position: relative;
+                padding-left: 50%;
+                text-align: left;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: calc(50% - 20px);
+                padding-right: 10px;
+                font-weight: bold;
+            }
         }
     </style>
 </head>
@@ -109,10 +142,10 @@
         </thead>
         <tbody>
             <tr>
-                <td>1</td>
-                <td>Inspección de nivel</td>
-                <td>Inspeccione el nivel de aceite de XMNS y TC. Recuerde que los niveles dependen de la temperatura del aceite según documento CAT (SEBU7792-28). Informe hallazgos encontrados.</td>
-                <td>
+                <td data-label="Item">1</td>
+                <td data-label="Tarea / Actividad">Inspección de nivel</td>
+                <td data-label="Descripción">Inspeccione el nivel de aceite de XMNS y TC. Recuerde que los niveles dependen de la temperatura del aceite según documento CAT (SEBU7792-28). Informe hallazgos encontrados.</td>
+                <td data-label="Estado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -124,10 +157,10 @@
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>Revisión de líneas</td>
-                <td>Inspección de líneas de BB TC & XMNS, líneas de carga, filtros, entrada y salida de XMNS, enfriamiento, inspeccionar respiraderos. Informe hallazgos encontrados.</td>
-                <td>
+                <td data-label="Item">2</td>
+                <td data-label="Tarea / Actividad">Revisión de líneas</td>
+                <td data-label="Descripción">Inspección de líneas de BB TC & XMNS, líneas de carga, filtros, entrada y salida de XMNS, enfriamiento, inspeccionar respiraderos. Informe hallazgos encontrados.</td>
+                <td data-label="Estado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -139,10 +172,10 @@
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>3</td>
-                <td>Inspección de Yoke</td>
-                <td>Inspeccione el estado del Yoke de XMNS por juego y estado del sello. Informe hallazgos encontrados.</td>
-                <td>
+                <td data-label="Item">3</td>
+                <td data-label="Tarea / Actividad">Inspección de Yoke</td>
+                <td data-label="Descripción">Inspeccione el estado del Yoke de XMNS por juego y estado del sello. Informe hallazgos encontrados.</td>
+                <td data-label="Estado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -154,10 +187,10 @@
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>Revisión de Transmisión</td>
-                <td>Revisión por fuga en tapa de XMNS, acople de DIFE, acople del transfer, VV, sensor de nivel, harness de XMNS. Informe hallazgos encontrados.</td>
-                <td>
+                <td data-label="Item">4</td>
+                <td data-label="Tarea / Actividad">Revisión de Transmisión</td>
+                <td data-label="Descripción">Revisión por fuga en tapa de XMNS, acople de DIFE, acople del transfer, VV, sensor de nivel, harness de XMNS. Informe hallazgos encontrados.</td>
+                <td data-label="Estado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -169,10 +202,10 @@
                <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>5</td>
-                <td>Revisión de Transfer</td>
-                <td>Revisar juego en el eje, fugas por sello del Yoke, fugas entre transfer y XMNS, fugas tapa de transfer. Informe hallazgos encontrados.</td>
-                <td>
+                <td data-label="Item">5</td>
+                <td data-label="Tarea / Actividad">Revisión de Transfer</td>
+                <td data-label="Descripción">Revisar juego en el eje, fugas por sello del Yoke, fugas entre transfer y XMNS, fugas tapa de transfer. Informe hallazgos encontrados.</td>
+                <td data-label="Estado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -184,10 +217,10 @@
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>6</td>
-                <td>Evaluar BB de TC</td>
-                <td>En caso de no encontrar fugas, evalúe el desempeño de la BB de convertidor por posible falla.</td>
-                <td>
+                <td data-label="Item">6</td>
+                <td data-label="Tarea / Actividad">Evaluar BB de TC</td>
+                <td data-label="Descripción">En caso de no encontrar fugas, evalúe el desempeño de la BB de convertidor por posible falla.</td>
+                <td data-label="Estado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -206,7 +239,8 @@
         <li>a. Si el aceite de convertidor de par está frío, use la mirilla inferior (3) para comprobar el nivel de aceite.</li>
         <li>b. Si el aceite del convertidor se encuentra en temperatura de operación, use la mirilla superior (2) para comprobar el nivel de aceite.</li>
     </ul>
-<td><img src="https://i.postimg.cc/FRmSGSqr/MIrrilla-del-convertidor.png"></td>
+    <img src="https://i.postimg.cc/FRmSGSqr/MIrrilla-del-convertidor.png" alt="Mirilla del convertidor" />
+
     <h3>PASO A PASO PARA EL DIAGNÓSTICO POR ENTRADA DE TIERRA Y ALTOS METALES:</h3>
     <p>Repita los pasos del 1 al 5.</p>
     <table>
@@ -221,15 +255,15 @@
         </thead>
         <tbody>
             <tr>
-                <td>7</td>
-                <td>Inspección de Screen de transmisión</td>
-                <td>Revise screen magnético. Informe hallazgos encontrados. <br>
+                <td data-label="Item">7</td>
+                <td data-label="Tarea / Actividad">Inspección de Screen de transmisión</td>
+                <td data-label="Descripción">Revise screen magnético. Informe hallazgos encontrados. <br>
                 - Partículas de caucho: Falla de sello, falla de manguera. <br>
                 - Partículas fibras negras: Desgaste de embragues. <br>
                 - Partículas hierro o acero: Componentes internos y/o engranajes. <br>
                 - Partículas aluminio: Pistón de carga, pistones de vv de control.</td>
-                <td><a href="https://postimg.cc/yJYkKm40" target="_blank"><img src="https://i.postimg.cc/yJYkKm40/Revision-de-screens.png" alt="Revision-de-screens"/></a></td>
-                <td>
+                <td data-label="Referencia"><a href="https://postimg.cc/yJYkKm40" target="_blank"><img src="https://i.postimg.cc/yJYkKm40/Revision-de-screens.png" alt="Revision-de-screens"/></a></td>
+                <td data-label="Realizado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -241,14 +275,14 @@
                 <td colspan="5"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>8</td>
-                <td>Inspección de Screen de convertidor</td>
-                <td>Revise screen magnético. Informe hallazgos encontrados. <br>
+                <td data-label="Item">8</td>
+                <td data-label="Tarea / Actividad">Inspección de Screen de convertidor</td>
+                <td data-label="Descripción">Revise screen magnético. Informe hallazgos encontrados. <br>
                 - Partículas de caucho: Falla sección 5 BB de carga de TC. <br>
                 - Partículas aluminio: Falla mecánica convertidor de par. <br>
                 - Partículas fibras negras: Desgaste de embrague de traba de convertidor.</td>
-                <td><img src="https://i.postimg.cc/MpCVMNmj/Rejilla-convertidor.jpg"></td>
-                <td>
+                <td data-label="Referencia"><img src="https://i.postimg.cc/MpCVMNmj/Rejilla-convertidor.jpg" alt="Rejilla de convertidor" /></td>
+                <td data-label="Realizado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -260,14 +294,14 @@
                 <td colspan="5"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>9</td>
-                <td>Inspección por posible falla en BB</td>
-                <td>Si se drenan más de 76 L (20 gal) de aceite: <br>
+                <td data-label="Item">9</td>
+                <td data-label="Tarea / Actividad">Inspección por posible falla en BB</td>
+                <td data-label="Descripción">Si se drenan más de 76 L (20 gal) de aceite: <br>
                 - Falla de sección de BB de barrido de XMNS. <br>
                 - Restricción en las rejillas magnéticas de la transmisión. <br>
                 - Demasiadas fugas en embragues de XMNS.</td>
-                <td><img src="https://i.postimg.cc/7YQgDfC9/Conjunto-de-BB-TC.jpg"></td>
-                <td>
+                <td data-label="Referencia"><img src="https://i.postimg.cc/7YQgDfC9/Conjunto-de-BB-TC.jpg" alt="Conjunto de BB TC" /></td>
+                <td data-label="Realizado">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -279,10 +313,10 @@
                <td colspan="5"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>10</td>
-                <td>Revisión de presiones básicas</td>
-                <td>Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.</td>
-                <td>
+                <td data-label="Item">10</td>
+                <td data-label="Tarea / Actividad">Revisión de presiones básicas</td>
+                <td data-label="Descripción">Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.</td>
+                <td data-label="Referencia">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -291,17 +325,17 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
+                <td colspan="5"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td>11</td>
-                <td>Revisión de presiones primarias</td>
-                <td>Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.<br>
+                <td data-label="Item">11</td>
+                <td data-label="Tarea / Actividad">Revisión de presiones primarias</td>
+                <td data-label="Descripción">Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.<br>
                 Nota: Los siguientes tres pasos se deben realizar en orden. Aunque solo sea necesario realizar uno de los pasos, los tres pasos se deben completar en el orden siguiente. <br>
                 1. Revise la presión (AA) de la sección de la bomba de carga de la transmisión en mando del convertidor de par. <br>
                 2. Revise la presión (EE) en el riel de suministro del embrague en mando directo. <br>
                 3. Revise la presión (DD) de la sección de la bomba de carga de la transmisión.</td>
-                <td>
+                <td data-label="Referencia">
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
@@ -310,7 +344,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
+                <td colspan="5"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
         </tbody>
     </table>
@@ -319,12 +353,13 @@
 
     <p>*** Inspección (corte) de elemento filtrante de XMNS y TC.</p>
     <p>Inspeccione el elemento filtrante de aceite de convertidor y valide si contiene partículas y de qué tipo son dichas partículas (metales, cauchos, fibras, celulosa, etc).</p>
-<table>
-    <tr>
-        <td><td><img src="https://i.postimg.cc/6p2CQtnX/Inspeccion-de-filtor.png"></td></td>
-        <td><td><img src="https://i.postimg.cc/xj5vxsnW/Posicion-filtro-CONV.jpg"></td></td>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <td><img src="https://i.postimg.cc/6p2CQtnX/Inspeccion-de-filtor.png" alt="Inspección de filtro" /></td>
+            <td><img src="https://i.postimg.cc/xj5vxsnW/Posicion-filtro-CONV.jpg" alt="Posición filtro CONV" /></td>
+        </tr>
+    </table>
+
     <p><strong>NOTA:</strong> Si se requiere traslado de equipo a taller, asegúrese que todas las condiciones estén dadas y que se realice el procedimiento de remolque de forma adecuada.</p>
 
     <!-- Botón para imprimir -->
