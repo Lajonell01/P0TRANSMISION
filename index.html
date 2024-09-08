@@ -27,13 +27,15 @@
             width: 100%;
             padding: 5px;
             margin-top: 5px;
-            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
         textarea {
-            resize: vertical;
+            resize: none;
+            overflow: hidden;
+            min-height: 50px;
+            transition: height 0.2s;
         }
         button {
             background-color: #4CAF50;
@@ -50,24 +52,21 @@
     </style>
 </head>
 <body>
-<table style="height: 58px; width: 100%; margin-left: auto; margin-right: auto;">
-    <tbody>
-<tr>
-<td style="width: 169px;"><img src="https://i.postimg.cc/x8D3wZ33/Cerrejon.png" alt="Logo de cerrejon" width="153" height="105" /></td>
-<td style="width: 472.953px; text-align: center;"><img src="https://i.postimg.cc/7h3nwNB8/Safe-work-LOGO.png" alt="SAFE WORK Glencore" width="155" height="65" /></td>
-<td style="width: 193.047px; text-align: right;"><img src="https://i.postimg.cc/zDKjCJqt/Truck-LOGO.jpg" alt="Camion 793D" width="186" height="99" /></td>
-</tr>
-</tbody>
-</table>
-    <div class="tabla-container">
-    <tr>
-        <td style="width: 100%">
-            <p>
-                <strong>Fecha:</strong> <span id="fecha"></span> 
-                <strong>Hora:</strong> <span id="hora"></span>
-            </p>
-        </td>                                                                                                
-    </tr>    
+
+    <!-- Encabezado con logotipos -->
+    <table style="width: 100%; margin-left: auto; margin-right: auto;">
+        <tr>
+            <td style="width: 33%;"><img src="https://i.postimg.cc/x8D3wZ33/Cerrejon.png" alt="Logo de Cerrejón" width="153" height="105"></td>
+            <td style="width: 34%; text-align: center;"><img src="https://i.postimg.cc/7h3nwNB8/Safe-work-LOGO.png" alt="SAFE WORK Glencore" width="155" height="65"></td>
+            <td style="width: 33%; text-align: right;"><img src="https://i.postimg.cc/zDKjCJqt/Truck-LOGO.jpg" alt="Camion 793D" width="186" height="99"></td>
+        </tr>
+    </table>
+
+    <!-- Fecha y Hora -->
+    <div>
+        <p><strong>Fecha:</strong> <span id="fecha"></span> 
+        <strong>Hora:</strong> <span id="hora"></span></p>
+    </div>
 
     <script>
         // Función para obtener la fecha y hora actual y actualizarla cada segundo
@@ -80,30 +79,27 @@
             var minutos = fechaActual.getMinutes();
             var segundos = fechaActual.getSeconds();
 
-            // Agregar un cero a la izquierda si el número es menor que 10
             dia = dia < 10 ? "0" + dia : dia;
             mes = mes < 10 ? "0" + mes : mes;
             hora = hora < 10 ? "0" + hora : hora;
             minutos = minutos < 10 ? "0" + minutos : minutos;
             segundos = segundos < 10 ? "0" + segundos : segundos;
 
-            // Actualizar el contenido de las etiquetas con la fecha y hora actual
             document.getElementById("fecha").innerHTML = dia + "/" + mes + "/" + anio;
             document.getElementById("hora").innerHTML = hora + ":" + minutos + ":" + segundos;
 
-            // Actualizar la fecha y hora cada segundo
             setTimeout(actualizarFechaHora, 1000);
         }
 
-        // Llamar a la función para la primera vez
         actualizarFechaHora();
     </script>
-</div>
-    <br>
-   <tr> <td><h1>FORMATO ÚNICO PARA ATENCIÓN DE P0 DE XMNS Y CONVERTIDOR</h1></td>
-       <td><p>Versión 000 / Agosto 2024</p></td> </tr>
-    <tr><h2>PROCEDIMIENTO PARA LA ATENCIÓN</h2></tr>
-    <br>
+
+    <!-- Título y Descripción -->
+    <h1>FORMATO ÚNICO PARA ATENCIÓN DE P0 DE XMNS Y CONVERTIDOR</h1>
+    <p>Versión 000 / Agosto 2024</p>
+
+    <h2>PROCEDIMIENTO PARA LA ATENCIÓN</h2>
+
     <h3>PASO A PASO PARA EL DIAGNÓSTICO POR BAJO NIVEL:</h3>
     <table>
         <thead>
@@ -116,96 +112,90 @@
         </thead>
         <tbody>
             <tr>
-                <td data-label="Item">1</td>
-                <td data-label="Tarea / Actividad">Inspección de nivel</td>
-                <td data-label="Descripción">Inspeccione el nivel de aceite de XMNS y TC. Recuerde que los niveles dependen de la temperatura del aceite según documento CAT (SEBU7792-28). Informe hallazgos encontrados.</td>
-                <td data-label="Estado">
+                <td>1</td>
+                <td>Inspección de nivel</td>
+                <td>Inspeccione el nivel de aceite de XMNS y TC. Recuerde que los niveles dependen de la temperatura del aceite según documento CAT (SEBU7792-28). Informe hallazgos encontrados.</td>
+                <td>
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">2</td>
-                <td data-label="Tarea / Actividad">Revisión de líneas</td>
-                <td data-label="Descripción">Inspección de líneas de BB TC & XMNS, líneas de carga, filtros, entrada y salida de XMNS, enfriamiento, inspeccionar respiraderos. Informe hallazgos encontrados.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>2</td>
+                <td>Revisión de líneas</td>
+                <td>Inspección de líneas de BB TC & XMNS, líneas de carga, filtros, entrada y salida de XMNS, enfriamiento, inspeccionar respiraderos. Informe hallazgos encontrados.</td>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">3</td>
-                <td data-label="Tarea / Actividad">Inspección de Yoke</td>
-                <td data-label="Descripción">Inspeccione el estado del Yoke de XMNS por juego y estado del sello. Informe hallazgos encontrados.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>3</td>
+                <td>Inspección de Yoke</td>
+                <td>Inspeccione el estado del Yoke de XMNS por juego y estado del sello. Informe hallazgos encontrados.</td>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">4</td>
-                <td data-label="Tarea / Actividad">Revisión de Transmisión</td>
-                <td data-label="Descripción">Revisión por fuga en tapa de XMNS, acople de DIFE, acople del transfer, VV, sensor de nivel, harness de XMNS. Informe hallazgos encontrados.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>4</td>
+                <td>Revisión de Transmisión</td>
+                <td>Revisión por fuga en tapa de XMNS, acople de DIFE, acople del transfer, VV, sensor de nivel, harness de XMNS. Informe hallazgos encontrados.</td>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">5</td>
-                <td data-label="Tarea / Actividad">Revisión de Transfer</td>
-                <td data-label="Descripción">Revisar juego en el eje, fugas por sello del Yoke, fugas entre transfer y XMNS, fugas tapa de transfer. Informe hallazgos encontrados.</td>
-                <td data-label="Estado">
+                <td>5</td>
+                <td>Revisión de Transfer</td>
+                <td>Revisar juego en el eje, fugas por sello del Yoke, fugas entre transfer y XMNS, fugas tapa de transfer. Informe hallazgos encontrados.</td>
+                <td>
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">6</td>
-                <td data-label="Tarea / Actividad">Evaluar BB de TC</td>
-                <td data-label="Descripción">En caso de no encontrar fugas, evalúe el desempeño de la BB de convertidor por posible falla.</td>
-                <td data-label="Estado">
+                <td>6</td>
+                <td>Evaluar BB de TC</td>
+                <td>En caso de no encontrar fugas, evalúe el desempeño de la BB de convertidor por posible falla.</td>
+                <td>
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
@@ -233,94 +223,89 @@
         </thead>
         <tbody>
             <tr>
-                <td data-label="Item">7</td>
-                <td data-label="Tarea / Actividad">Inspección de Screen de transmisión</td>
-                <td data-label="Descripción">Revise screen magnético. Informe hallazgos encontrados. <br>
+                <td>7</td>
+                <td>Inspección de Screen de transmisión</td>
+                <td>Revise screen magnético. Informe hallazgos encontrados. <br>
                 - Partículas de caucho: Falla de sello, falla de manguera. <br>
                 - Partículas fibras negras: Desgaste de embragues. <br>
                 - Partículas hierro o acero: Componentes internos y/o engranajes. <br>
                 - Partículas aluminio: Pistón de carga, pistones de vv de control.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">8</td>
-                <td data-label="Tarea / Actividad">Inspección de Screen de convertidor</td>
-                <td data-label="Descripción">Revise screen magnético. Informe hallazgos encontrados. <br>
+                <td>8</td>
+                <td>Inspección de Screen de convertidor</td>
+                <td>Revise screen magnético. Informe hallazgos encontrados. <br>
                 - Partículas de caucho: Falla sección 5 BB de carga de TC. <br>
                 - Partículas aluminio: Falla mecánica convertidor de par. <br>
                 - Partículas fibras negras: Desgaste de embrague de traba de convertidor.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">9</td>
-                <td data-label="Tarea / Actividad">Inspección por posible falla en BB</td>
-                <td data-label="Descripción">Si se drenan más de 76 L (20 gal) de aceite: <br>
+                <td>9</td>
+                <td>Inspección por posible falla en BB</td>
+                <td>Si se drenan más de 76 L (20 gal) de aceite: <br>
                 - Falla de sección de BB de barrido de XMNS. <br>
                 - Restricción en las rejillas magnéticas de la transmisión. <br>
                 - Demasiadas fugas en embragues de XMNS.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">10</td>
-                <td data-label="Tarea / Actividad">Revisión de presiones básicas</td>
-                <td data-label="Descripción">Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.</td>
-                <td data-label="Estado">
+                <td>10</td>
+                <td>Revisión de presiones básicas</td>
+                <td>Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.</td>
+                <td>
                     <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
                 <td colspan="4"><textarea placeholder="Añadir comentarios..."></textarea></td>
             </tr>
             <tr>
-                <td data-label="Item">11</td>
-                <td data-label="Tarea / Actividad">Revisión de presiones primarias</td>
-                <td data-label="Descripción">Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.<br>
+                <td>11</td>
+                <td>Revisión de presiones primarias</td>
+                <td>Asegure que las rejillas y filtros estén limpios antes de comprobar las presiones. Asegúrese que la temperatura del aceite sea la adecuada antes de tomar las presiones.<br>
                 Nota: Los siguientes tres pasos se deben realizar en orden. Aunque solo sea necesario realizar uno de los pasos, los tres pasos se deben completar en el orden siguiente. <br>
                 1. Revise la presión (AA) de la sección de la bomba de carga de la transmisión en mando del convertidor de par. <br>
                 2. Revise la presión (EE) en el riel de suministro del embrague en mando directo. <br>
                 3. Revise la presión (DD) de la sección de la bomba de carga de la transmisión.</td>
-                <td data-label="Estado">
-                     <select>
+                <td>
+                    <select>
                         <option value="ok">OK</option>
                         <option value="not-ok">NOT OK</option>
                         <option value="na">N/A</option>
                     </select>
-                    
                 </td>
             </tr>
             <tr>
@@ -336,9 +321,11 @@
 
     <p><strong>NOTA:</strong> Si se requiere traslado de equipo a taller, asegúrese que todas las condiciones estén dadas y que se realice el procedimiento de remolque de forma adecuada.</p>
 
-      <h4>Compartir entrega de turno</h4>
-<input type="button" value="Compartir" onclick="window.print()">
+    <!-- Botón para imprimir -->
+    <h4>Compartir entrega de turno</h4>
+    <button onclick="window.print()">Compartir</button>
 
+    <!-- Script para generar PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
         function generatePDF() {
@@ -350,10 +337,18 @@
                 },
                 x: 10,
                 y: 10,
-                width: 190, // Max width of content on the page
-                windowWidth: 650 // Width of HTML rendering in jsPDF
+                width: 190,
+                windowWidth: 650
             });
         }
+
+        // Script para expandir el textarea automáticamente
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
     </script>
 
 </body>
