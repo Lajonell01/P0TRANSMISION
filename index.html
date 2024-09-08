@@ -449,6 +449,14 @@
       import * as bootstrap from 'bootstrap'
 
       new bootstrap.Popover(document.getElementById('popoverButton'))
+        
+        // Script para expandir el textarea automáticamente
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
     </script>
 </body>
 </html>
