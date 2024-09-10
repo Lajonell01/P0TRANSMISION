@@ -426,8 +426,7 @@
       <h4>COMPARTIR EN PDF</h4>
 <input type="button" value="Compartir" onclick="window.print()">
 </form>
-
- <script>
+  <script>
       const inputFoto = document.querySelector('#foto');
       const imgFoto = document.querySelector('#foto-cargada');
 
@@ -438,7 +437,18 @@
           imgFoto.src = event.target.result;
         };
         reader.readAsDataURL(file);
-      });
+      // Script para expandir el textarea automáticamente
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+
+                // Inicializar la altura al cargar la página
+                textarea.style.height = 'auto';
+                textarea.style.height = (textarea.scrollHeight) + 'px';
+            });
+        });
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
     <script type="importmap">
